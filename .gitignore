@@ -1,0 +1,11 @@
+# OS files
+.directory
+
+# IDE artifacts
+**/.idea/
+*.iml
+
+# Build artifacts
+**/.gradle
+**/build
+**/out
