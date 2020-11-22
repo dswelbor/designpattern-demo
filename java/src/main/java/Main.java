@@ -5,7 +5,8 @@ import decorator.DecafDecorator;
 import decorator.TopShelfDecorator;
 
 public class Main {
-    public static void main(String[] pArgs) {
+
+    public static void runDecorator() {
         // Demonstrate decorator
         Coffee coffee = new CoffeeBase();
         System.out.println("Basic coffee: $"+ coffee.getCost());
@@ -23,4 +24,9 @@ public class Main {
         coffee = new TopShelfDecorator(coffee);
         System.out.println("Topshelf Decaf Coffee w/ 2 shots: $"+ coffee.getCost());
     }
+
+    public static void main(String[] pArgs) {
+        runDecorator();
+    }
+
 }
