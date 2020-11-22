@@ -4,9 +4,15 @@ import decorator.CoffeeBase;
 import decorator.DecafDecorator;
 import decorator.TopShelfDecorator;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Main {
 
     public static void runDecorator() {
+        System.out.println("--- Start Decorator Example ---");
+
         // Demonstrate decorator
         Coffee coffee = new CoffeeBase();
         System.out.println("Basic coffee: $"+ coffee.getCost());
@@ -23,10 +29,50 @@ public class Main {
         // make it topshelf coffee
         coffee = new TopShelfDecorator(coffee);
         System.out.println("Topshelf Decaf Coffee w/ 2 shots: $"+ coffee.getCost());
+
+        System.out.println("--- End Decorator Example ---\n");
+    }
+
+    public static void runFactory() {
+        // TODO: Implement me
+        System.out.println("--- Start Factory Example ---");
+        System.out.println("Factory Pattern example under construction...");
+        System.out.println("--- End Factory Example ---\n");
     }
 
     public static void main(String[] pArgs) {
-        runDecorator();
+        // TODO: Refactor as abstracted cli runtime config
+        List<String> allArgs = Arrays.asList("-decorator", "-factory");
+        List<String> cliArgs = new LinkedList<>(Arrays.asList(pArgs));
+
+        // Validate args
+        StringBuilder badArgs = new StringBuilder();
+        for (String arg: pArgs) {
+            if (!allArgs.contains(arg)) {
+                badArgs.append(" ");
+                badArgs.append(arg);
+            }
+
+        }
+        // invalid args
+        if (badArgs.length() > 0) {
+            System.out.printf("Unknown command-line option(s):%s\n", badArgs.toString());
+            System.exit(0);
+        }
+        // Default - no params, run all
+        if (cliArgs.isEmpty()) {
+
+            cliArgs.addAll(allArgs);
+        }
+
+        // execute examples
+        if (cliArgs.contains("-decorator")) {
+            runDecorator();
+        }
+        if (cliArgs.contains("-factory")) {
+            runFactory();
+        }
+
     }
 
 }
