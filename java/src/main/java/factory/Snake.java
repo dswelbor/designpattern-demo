@@ -1,5 +1,8 @@
 package factory;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Snake implements Animal{
     public static final int MIN_REST_TIME = 5;
     public static final int MIN_MOVE_TIME = 3;
@@ -69,5 +72,41 @@ public class Snake implements Animal{
 
         // results calculated
         return moveDistance;
+    }
+
+    @Override
+    public String view() {
+        String slitherized = this.slitherize();
+        StringBuilder summary = new StringBuilder()
+                .append(this.name)
+                .append(" is a snake.\n")
+                .append(slitherized);
+        return summary.toString();
+    }
+
+    /**
+     * Helper method that adds sss or zzz to snake's description. Sss is applied
+     * when the snake is active/awake, zzz when the snake is sleeping/resting.
+     * @return slitherized description
+     */
+    private String slitherize() {
+        String hiss;
+        // awake
+        if (this.restCounter == 0) {
+            hiss = "sss";
+        }
+        // resting
+        else {
+            hiss = "zzz";
+        }
+        String[] words = this.description.split(" ");
+        int wordCount = words.length;
+        int numHisses = Math.max(RandomResult.getInt(wordCount), 5);
+        for (int i = 0; i < numHisses; ++i) {
+            int randIndex = RandomResult.getInt(wordCount);
+            String word = words[randIndex] + hiss;
+            words[randIndex] = word;
+        }
+        return String.join(" ", words);
     }
 }

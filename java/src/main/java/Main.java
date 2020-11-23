@@ -3,6 +3,7 @@ import decorator.Coffee;
 import decorator.CoffeeBase;
 import decorator.DecafDecorator;
 import decorator.TopShelfDecorator;
+import factory.Snake;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -39,6 +40,14 @@ public class Main {
         // TODO: Implement me
         System.out.println("--- Start Factory Example ---");
         System.out.println("Factory Pattern example under construction...");
+
+        Snake snake = new Snake("Billy", "Enjoys sunning and " +
+                "long walks on the beach. Sometimes gets clingy and wraps " +
+                "around friends and family.", 4);
+        for (int i = 0; i < 5; ++i) {
+            System.out.println(snake.move());
+        }
+        System.out.println(snake.view());
         System.out.println("--- End Factory Example ---\n");
     }
 
