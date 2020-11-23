@@ -3,6 +3,7 @@ import decorator.Coffee;
 import decorator.CoffeeBase;
 import decorator.DecafDecorator;
 import decorator.TopShelfDecorator;
+import factory.Horse;
 import factory.Snake;
 
 import java.util.Arrays;
@@ -48,6 +49,18 @@ public class Main {
             System.out.println(snake.move());
         }
         System.out.println(snake.view());
+        Horse horse = new Horse("Black Beauty", "Black beauty" +
+                " is the darkest black with a shiny coat. They enjoy apples " +
+                "and carrots.", 20);
+        for (int i = 0; i < 500; ++i) {
+            String output = String.valueOf(horse.move());
+            if (i > 0) {
+                output = ", " +  output;
+
+            }
+            System.out.print(output);
+        }
+        System.out.println("\n" + horse.view());
         System.out.println("--- End Factory Example ---\n");
     }
 

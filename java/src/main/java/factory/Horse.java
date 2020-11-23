@@ -42,13 +42,58 @@ public class Horse implements Animal{
         this.rideCounter = 0;
     }
 
+    /**
+     * Method implements Animal move behavior for horse. Horses run faster in
+     * their prime, so a horse aged between 7 and 14 (inclusive) will run
+     * 50% faster. Horses age as they run as well.
+     * @return distance moved
+     */
     @Override
     public int move() {
-        return 0;
+        // base case - horse died of old age
+        if (this.age > this.deathAge) {
+            return 0;
+        }
+        // age horse
+        if (++this.rideCounter > RIDE_COUNTER_THRESHOLD) {
+            ++this.age;
+            this.rideCounter = 0;
+        }
+        // ride horse
+        int moveDistance = this.rideSpeed;
+        // prime - inclusive bounds
+        if (this.age >= PRIME_LOWER && this.age <= PRIME_UPPER) {
+            // boost speed by 50% offset
+            int offset = Long.valueOf(Math.round(this.rideSpeed / 2.0)).intValue();
+            moveDistance = this.rideSpeed + offset;
+        }
+
+        return moveDistance;
     }
 
     @Override
     public String view() {
-        return null;
+        String horseDescription = winnyIze();
+        StringBuilder summary = new StringBuilder();
+        summary.append(this.name).append(" is a horse.\n").append(horseDescription);
+        String result = summary.toString();
+        return result;
+    }
+
+    private String winnyIze() {
+        StringBuilder winny = new StringBuilder(this.description);
+        // special case - dead
+        if (this.age > this.deathAge) {
+            winny.insert(0,"[...Only this and nothing more...]\n");
+            winny.append("\n[..Shall be lifted—-nevermore!]\n\t - R.I.P. ");
+            winny.append(this.name).append(" (");
+            winny.append(this.age).append(" years)");
+        }
+        // alive
+        else {
+            winny.append("Nei-eigh-eigh...");
+        }
+
+        return winny.toString();
     }
 }
