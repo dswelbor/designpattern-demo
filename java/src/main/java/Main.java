@@ -9,6 +9,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Main {
+    // List of valid args
+    private static List<String> allArgs = Arrays.asList("-decorator", "-factory");
 
     public static void runDecorator() {
         System.out.println("--- Start Decorator Example ---");
@@ -40,11 +42,7 @@ public class Main {
         System.out.println("--- End Factory Example ---\n");
     }
 
-    public static void main(String[] pArgs) {
-        // TODO: Refactor as abstracted cli runtime config
-        List<String> allArgs = Arrays.asList("-decorator", "-factory");
-        List<String> cliArgs = new LinkedList<>(Arrays.asList(pArgs));
-
+    private static boolean validateArgs(String[] pArgs) {
         // Validate args
         StringBuilder badArgs = new StringBuilder();
         for (String arg: pArgs) {
@@ -57,8 +55,18 @@ public class Main {
         // invalid args
         if (badArgs.length() > 0) {
             System.out.printf("Unknown command-line option(s):%s\n", badArgs.toString());
+            // TODO: Add help text that informs usage of cli args
+
             System.exit(0);
         }
+        return true;
+    }
+
+    public static void main(String[] pArgs) {
+        // TODO: Refactor as abstracted cli runtime config
+        List<String> cliArgs = new LinkedList<>(Arrays.asList(pArgs));
+        validateArgs(pArgs);
+
         // Default - no params, run all
         if (cliArgs.isEmpty()) {
 
