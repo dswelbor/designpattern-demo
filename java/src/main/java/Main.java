@@ -1,4 +1,5 @@
-import adapter.*;
+import adapter.Headphones;
+import adapter.USBAdapter;
 import decorator.AddShotDecorator;
 import decorator.Coffee;
 import decorator.CoffeeBase;
