@@ -71,8 +71,18 @@ public class Horse implements Animal{
         return moveDistance;
     }
 
+    /**
+     * Method provides the textual view functionality for Horses. This returns a
+     * String composed of the Horses name, its description, and horselike winny's
+     * incorporated. The view functionality output changes slightly when the
+     * Horse has died.
+     * @return String view representation
+     */
     @Override
     public String view() {
+        // Opportunity here to apply Template Method Pattern here
+        // View in Snake and Horse are almost identical structurally
+        // slitherize() and winnyize() are the only pieces that vary
         String horseDescription = winnyIze();
         StringBuilder summary = new StringBuilder();
         summary.append(this.name).append(" is a horse.\n").append(horseDescription);
