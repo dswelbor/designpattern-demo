@@ -18,8 +18,10 @@ in the following languages with plans to support more languages in the future:
 
 ## Java Design Patterns
 The following design patterns have been implemented in Java:
+- Adapter
 - Decorator
 - Iterator
+
 
 ## Python
 This section is under construction. More to come at a later date.

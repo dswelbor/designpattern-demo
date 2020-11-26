@@ -1,3 +1,4 @@
+import adapter.*;
 import decorator.AddShotDecorator;
 import decorator.Coffee;
 import decorator.CoffeeBase;
@@ -10,9 +11,31 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+
 public class Main {
     // List of valid args
-    private static List<String> allArgs = Arrays.asList("-decorator", "-factory");
+    private static List<String> allArgs = Arrays.asList(
+            "-decorator",
+            "-factory",
+            "-adapter");
+
+    private static void runAdapter() {
+        System.out.println("--- Start Adapter Example ---");
+        System.out.println("You've got an Iphone 5 and wanna listen to music with your 3.5 mm headphones. Easy");
+        Headphones headphones = new Headphones();
+        headphones.listen();
+
+        System.out.println("\n\nBut now you've upgraded your phone to the Iphone 10. You wanna listen to music");
+        System.out.println("Wait... The iphone 10 uses a different interface for headphone connections, it uses USB-C");
+        System.out.println("We know Apple isn't exactly friendly to popping open the device and adjusting the hardware" +
+                "so what should we do");
+
+        System.out.println("Luckily, we know we can just use an adapter, to adapt to this new interface");
+        headphones.iphone = new USBAdapter();
+        System.out.println("\n\nAdapter applied, lets listen to music:");
+        headphones.listen();
+        System.out.println("--- End Adapter Example ---\n");
+    }
 
     public static void runDecorator() {
         System.out.println("--- Start Decorator Example ---");
@@ -96,13 +119,15 @@ public class Main {
         }
 
         // execute examples
+        if (cliArgs.contains("-adapter")){
+            runAdapter();
+        }
         if (cliArgs.contains("-decorator")) {
             runDecorator();
         }
         if (cliArgs.contains("-factory")) {
             runFactory();
         }
-
     }
 
 }
