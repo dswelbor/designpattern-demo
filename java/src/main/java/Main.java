@@ -22,7 +22,7 @@ public class Main {
             "-factory",
             "-adapter");
 
-    private static void runAdapter() {
+    public static void runAdapter() {
         System.out.println("--- Start Adapter Example ---");
         System.out.println("You've got an Iphone 5 and wanna listen to music with your 3.5 mm headphones. Easy");
         Headphones headphones = new Headphones();
@@ -66,43 +66,35 @@ public class Main {
     public static void runFactory() {
         // TODO: Implement me
         System.out.println("--- Start Factory Example ---");
-        System.out.println("Factory Pattern example under construction...");
 
-        Snake snake = new Snake("Billy", "Enjoys sunning and " +
-                "long walks on the beach. Sometimes gets clingy and wraps " +
-                "around friends and family.", 4);
-        for (int i = 0; i < 5; ++i) {
-            System.out.println(snake.move());
-        }
-        System.out.println(snake.view());
-        Horse horse = new Horse("Black Beauty", "Black beauty" +
-                " is the darkest black with a shiny coat. They enjoy apples " +
-                "and carrots.", 20);
-        for (int i = 0; i < 500; ++i) {
-            String output = String.valueOf(horse.move());
-            if (i > 0) {
-                output = ", " +  output;
-
-            }
-            System.out.print(output);
-        }
-        System.out.println("\n" + horse.view());
-        System.out.println("--- End Factory Example ---\n");
         AnimalFactory racingFactory = new RaceHorseFactory();
-        //RaceHorseFactory racingFactory = new RaceHorseFactory();
-        System.out.println("Creating 3 Horses using AnimalFactory...");
-        for (int i = 0; i < 3; ++i) {
-            // create new Animal using factory method
-            Animal newHorse = racingFactory.create();
-            StringBuilder horseResult = new StringBuilder();
-            String animalType = newHorse.getClass().getSimpleName();
-            horseResult.append("Successfully created new Animal: ")
-                    .append(animalType).append("\nview(): \n")
-                    .append(newHorse.view())
-                    .append("\nmove(): \n").append(newHorse.move());
-            System.out.println(horseResult.toString());
+        doFactoryMethod(racingFactory, 3);
+        //System.out.print("\n");
 
-            //System.out.println(racingFactory.getNextName());
+        AnimalFactory snakeFactory = new SnakeCloningFactory();
+        doFactoryMethod(snakeFactory, 3);
+        //System.out.print("\n");
+
+        System.out.println("--- End Factory Example ---\n");
+    }
+
+    private static void doFactoryMethod(AnimalFactory factory, int numAnimals) {
+        //AnimalFactory snakeFactory = new SnakeCloningFactory();
+        String factoryName = factory.getClass().getSimpleName();
+        StringBuilder actionText = new StringBuilder()
+                .append("- Creating ").append(numAnimals)
+                .append(" Animal objects  using ").append(factoryName).append("...");
+        System.out.println(actionText.toString());
+        for (int i = 0; i < numAnimals; ++i) {
+            // create new Animal using factory method
+            Animal newAnimal = factory.create();
+            String animalType = newAnimal.getClass().getSimpleName();
+            StringBuilder snakeResult = new StringBuilder()
+                    .append("Successfully created new Animal: ")
+                    .append(animalType).append("\nview(): \n")
+                    .append(newAnimal.view())
+                    .append("\nmove(): \n").append(newAnimal.move());
+            System.out.println(snakeResult.toString());
         }
     }
 
