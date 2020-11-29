@@ -75,7 +75,7 @@ public class RaceHorseFactory implements AnimalFactory {
      */
     public Animal create() {
         // calculate speed
-        int range = this.maxSpeed = this.minSpeed;
+        int range = this.maxSpeed - this.minSpeed;
         int offset = RandomResult.getInt(range + 1);
         int horseSpeed = this.minSpeed + offset;
 

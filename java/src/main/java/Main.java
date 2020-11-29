@@ -75,6 +75,9 @@ public class Main {
         doFactoryMethod(snakeFactory, 3);
         //System.out.print("\n");
 
+        AnimalFactory petFactory = new AquaticPetFactory();
+        doFactoryMethod(petFactory, 3);
+
         System.out.println("--- End Factory Example ---\n");
     }
 
@@ -82,7 +85,7 @@ public class Main {
         //AnimalFactory snakeFactory = new SnakeCloningFactory();
         String factoryName = factory.getClass().getSimpleName();
         StringBuilder actionText = new StringBuilder()
-                .append("- Creating ").append(numAnimals)
+                .append("[INFO] Creating ").append(numAnimals)
                 .append(" Animal objects  using ").append(factoryName).append("...");
         System.out.println(actionText.toString());
         for (int i = 0; i < numAnimals; ++i) {
@@ -90,7 +93,7 @@ public class Main {
             Animal newAnimal = factory.create();
             String animalType = newAnimal.getClass().getSimpleName();
             StringBuilder snakeResult = new StringBuilder()
-                    .append("Successfully created new Animal: ")
+                    .append("[INFO] Successfully created new Animal: ")
                     .append(animalType).append("\nview(): \n")
                     .append(newAnimal.view())
                     .append("\nmove(): \n").append(newAnimal.move());
