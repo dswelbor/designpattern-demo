@@ -101,7 +101,7 @@ public class Horse implements Animal{
         }
         // alive
         else {
-            winny.append("Nei-eigh-eigh...");
+            winny.append(" (Nei-eigh-eigh...)");
         }
 
         return winny.toString();

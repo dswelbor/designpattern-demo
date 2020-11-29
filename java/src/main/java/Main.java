@@ -5,10 +5,12 @@ import decorator.Coffee;
 import decorator.CoffeeBase;
 import decorator.DecafDecorator;
 import decorator.TopShelfDecorator;
-import factory.Horse;
-import factory.Snake;
+//import factory.Horse;
+//import factory.Snake;
+import factory.*;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -86,6 +88,22 @@ public class Main {
         }
         System.out.println("\n" + horse.view());
         System.out.println("--- End Factory Example ---\n");
+        AnimalFactory racingFactory = new RaceHorseFactory();
+        //RaceHorseFactory racingFactory = new RaceHorseFactory();
+        System.out.println("Creating 3 Horses using AnimalFactory...");
+        for (int i = 0; i < 3; ++i) {
+            // create new Animal using factory method
+            Animal newHorse = racingFactory.create();
+            StringBuilder horseResult = new StringBuilder();
+            String animalType = newHorse.getClass().getSimpleName();
+            horseResult.append("Successfully created new Animal: ")
+                    .append(animalType).append("\nview(): \n")
+                    .append(newHorse.view())
+                    .append("\nmove(): \n").append(newHorse.move());
+            System.out.println(horseResult.toString());
+
+            //System.out.println(racingFactory.getNextName());
+        }
     }
 
     private static boolean validateArgs(String[] pArgs) {
