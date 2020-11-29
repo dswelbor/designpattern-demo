@@ -3,7 +3,9 @@ package factory;
 import java.util.*;
 
 /**
- * Concrete implementation of a DuckFactory
+ * Concrete implementation of a AnimalFactory. It makes aquatic pet Animal objects.
+ * Currently, since snakes and ducks are the only aquatic or at least marine friendly
+ * animals - it makes these kinds of Animal objects.
  */
 public class AquaticPetFactory implements AnimalFactory {
     static String[] DEFAULT_DUCK_NAMES = {"Donald", "Huey", "Dewey"};
@@ -44,7 +46,7 @@ public class AquaticPetFactory implements AnimalFactory {
 
 
     /**
-     * Default ctor for a competitive race horse factory.
+     * Default ctor for an aquatic pet factory.
      * @throws IllegalArgumentException if maxSpeed < minSpeed
      */
     public AquaticPetFactory() {

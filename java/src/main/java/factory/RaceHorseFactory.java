@@ -4,7 +4,8 @@ import java.lang.reflect.Constructor;
 import java.util.*;
 
 /**
- * Concrete implementation of a DuckFactory
+ * Concrete implementation of an AnimalFactory. It produces race horse quality
+ * Horse objects. Horses are Animals
  */
 public class RaceHorseFactory implements AnimalFactory {
     static String[] DEFAULT_NAMES = {"Black Beauty", "Lexington", "Winchester"};

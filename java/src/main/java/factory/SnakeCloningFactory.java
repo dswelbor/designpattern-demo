@@ -3,7 +3,9 @@ package factory;
 import java.util.*;
 
 /**
- * Concrete implementation of a DuckFactory
+ * Concrete implementation of an AnimalFactory that produces cloned Snake objects.
+ * The snake names are appended with unique identifiers that distinguish one
+ * clone from another.
  */
 public class SnakeCloningFactory implements AnimalFactory {
     static String DEFAULT_NAME = "Nagini";
