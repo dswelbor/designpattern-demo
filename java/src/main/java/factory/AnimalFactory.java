@@ -8,5 +8,5 @@ public interface AnimalFactory {
      * Creates Animals
      * @return Animal
      */
-    public Animal createAnimal();
+    public Animal create();
 }

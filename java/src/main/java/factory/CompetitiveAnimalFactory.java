@@ -29,7 +29,7 @@ public class CompetitiveAnimalFactory implements AnimalFactory {
      * Creates a decorated duck based on the prepare time.
      * @return decorated Duck
      */
-    public Animal createAnimal() {
+    public Animal create() {
         return new Horse("bob", "nothing", 25);
     }
     /*
