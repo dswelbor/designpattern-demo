@@ -49,13 +49,13 @@ More documentation can be found in the `<repo_root>/docs/java` folder.
 
 ### Adapter Pattern
 The adapter design pattern converts the interface of a class into another interface 
-clients expect. This allows classes tp work together that otherwise could not due to
+clients expect. This allows classes to work together that otherwise could not due to
 incompatible interfaces.
 
 The provided example uses an Adapter to wrap the new usb-based interface and make 
 both versions of the Iphone (IPhone5 and Iphone10) work with the Headphones - which
 uses the AudioJackIphone interface. More info can be found in the folder:
-`/docs/java/adapter` 
+`/docs/java/adapter` and in its README file.
 
 ### Decorator Pattern
 The decorator pattern is a structural design pattern that abstracts how to enhance 
@@ -65,7 +65,7 @@ the default output for something while retaining the same interface and leaving 
 state of what's being decorated untouched. This is also useful when side effects are 
 desirable - such as wrapping a method with logging.
 
-In the java-based example we provide, CoffeeBase "is" Coffee as are CoffeeDecorators. 
+In the java-based example we provide, CoffeeBase "is-a" Coffee as are CoffeeDecorators. 
 These decorators are abstracted as children of the CoffeeDecoratorAbstract parent class, 
 which serves to both enforce the common Coffee interface and bake in common shared 
 attributes. More information about this pattern and how it is used can be found at: 
