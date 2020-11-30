@@ -1,6 +1,6 @@
 # Contributing to DesignPattern Demos
 This is a pretty casual project and contributors are always welcome. 
-Contributions can come in many farms - whether that's efficiency improvements, 
+Contributions can come in many forms - whether that's efficiency improvements, 
 better documentation, code comment cleanup, or new design pattern examples. In 
 the interest of consistency, we do have some guidelines for pull requests.
 
@@ -8,8 +8,8 @@ the interest of consistency, we do have some guidelines for pull requests.
 More to come on this later as the project matures...feel free to contribute here 
 as well!!
 
-Note: At this early stage in the project, as long as names make sense and are 
-relevant to the feature adds to the project, this should suffice.
+Note: At this early stage in the project, as long as branch names make sense and are 
+relevant to the feature enhancements, this should suffice.
 
 ## Workflow
 To keep things stable and, we ask the contributions follow a common workflow:
