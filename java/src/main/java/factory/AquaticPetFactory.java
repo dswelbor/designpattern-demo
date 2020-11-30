@@ -86,7 +86,7 @@ public class AquaticPetFactory implements AnimalFactory {
     }
 
     /**
-     * Creates a race horse based on configured min/max speeds and pool of names
+     * Creates an aquatic pet based on configured min/max speeds and pool of names
      * and descriptions.
      * @return race Horse
      */
@@ -105,7 +105,7 @@ public class AquaticPetFactory implements AnimalFactory {
     }
 
     /*
-    Both of the following helper methods use conditionals and are prime
+    The following helper methods use conditionals and are prime
     candidates to replace conditionals with polymorphism a la Martin Fowler
      */
 
