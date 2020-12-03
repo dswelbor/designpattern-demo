@@ -36,7 +36,7 @@ following format:
    - [ ] Developer Checklist complete and accurate
    - [ ] Code free of any obvious logical errors
    - [ ] Code is readable and functionality is clear
-   - [ ] Code followed style guidlines
+   - [ ] Code followed style guidelines
    - [ ] Code has been appropriately tested and no errors present
    Comments
    This is where reviewer comments, notes and relevant information should be 

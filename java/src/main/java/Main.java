@@ -5,16 +5,23 @@ import decorator.Coffee;
 import decorator.CoffeeBase;
 import decorator.DecafDecorator;
 import decorator.TopShelfDecorator;
-//import factory.Horse;
-//import factory.Snake;
-import factory.*;
+import factory.Animal;
+import factory.AnimalFactory;
+import factory.AquaticPetFactory;
+import factory.RaceHorseFactory;
+import factory.SnakeCloningFactory;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-
+/***
+ * This class serves to provide an entry point for the Design Pattern Demos,
+ * add some utility by means of cli arg parsing, and abstract demos for each
+ * design pattern.
+ * @author David Welborn, Jacob Labrec
+ * @version 11/30/2020
+ */
 public class Main {
     // List of valid args
     private static List<String> allArgs = Arrays.asList(
@@ -22,6 +29,9 @@ public class Main {
             "-factory",
             "-adapter");
 
+    /**
+     * Utility method sets up and runs a demo for the Adapter Pattern
+     */
     public static void runAdapter() {
         System.out.println("--- Start Adapter Example ---");
         System.out.println("You've got an Iphone 5 and wanna listen to music with your 3.5 mm headphones. Easy");
@@ -40,6 +50,9 @@ public class Main {
         System.out.println("--- End Adapter Example ---\n");
     }
 
+    /**
+     * Utility method encapsulates running the decorator demo.
+     */
     public static void runDecorator() {
         System.out.println("--- Start Decorator Example ---");
 
@@ -63,17 +76,17 @@ public class Main {
         System.out.println("--- End Decorator Example ---\n");
     }
 
+    /**
+     * Utility method encapsulates running the factory demo.
+     */
     public static void runFactory() {
-        // TODO: Implement me
         System.out.println("--- Start Factory Example ---");
 
         AnimalFactory racingFactory = new RaceHorseFactory();
         doFactoryMethod(racingFactory, 3);
-        //System.out.print("\n");
 
         AnimalFactory snakeFactory = new SnakeCloningFactory();
         doFactoryMethod(snakeFactory, 3);
-        //System.out.print("\n");
 
         AnimalFactory petFactory = new AquaticPetFactory();
         doFactoryMethod(petFactory, 3);
@@ -81,6 +94,12 @@ public class Main {
         System.out.println("--- End Factory Example ---\n");
     }
 
+    /**
+     * Helper method abstracts the usage of different factories in a loop
+     * to showcase the Factory Method Design Pattern/
+     * @param factory AnimalFactory instance to use
+     * @param numAnimals int number of animals to create
+     */
     private static void doFactoryMethod(AnimalFactory factory, int numAnimals) {
         //AnimalFactory snakeFactory = new SnakeCloningFactory();
         String factoryName = factory.getClass().getSimpleName();
@@ -101,6 +120,11 @@ public class Main {
         }
     }
 
+    /**
+     * Helper method validates passed cli args are in fact valid
+     * @param pArgs cli args
+     * @return true if valid, false otherwise
+     */
     private static boolean validateArgs(String[] pArgs) {
         // Validate args
         StringBuilder badArgs = new StringBuilder();
@@ -121,6 +145,12 @@ public class Main {
         return true;
     }
 
+    /**
+     * This is the main entry point for the Design Pattern Demo program. It
+     * is configured to accept cli args and defaults to running all if no args
+     * are provided.
+     * @param pArgs cli args
+     */
     public static void main(String[] pArgs) {
         // TODO: Refactor as abstracted cli runtime config
         List<String> cliArgs = new LinkedList<>(Arrays.asList(pArgs));

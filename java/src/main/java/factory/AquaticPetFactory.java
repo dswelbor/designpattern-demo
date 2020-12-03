@@ -99,7 +99,6 @@ public class AquaticPetFactory implements AnimalFactory {
         int randTypeOrdinal = RandomResult.getInt(petTypes.length);
         PetType randType = petTypes[randTypeOrdinal];
 
-
         return getNewPet(randType, getNextName(randType),
                 getNextDescription(randType), petSpeed);
     }
