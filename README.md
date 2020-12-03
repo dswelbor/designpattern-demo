@@ -20,8 +20,10 @@ in the following languages with plans to support more languages in the future:
 The following design patterns have been implemented in Java:
 - Adapter
 - Decorator
-- Iterator
+- Factory
 
+Gradle has been used to manage dependancies and automate building, testing, and 
+execution. More information can be found in the respective README file.
 
 ## Python
 This section is under construction. More to come at a later date.
